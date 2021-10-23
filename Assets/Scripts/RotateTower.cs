@@ -12,7 +12,8 @@ public class RotateTower : MonoBehaviour
             if(touch.phase == TouchPhase.Moved)
             {
                 float torque = touch.deltaPosition.x * speedRotate * Time.deltaTime;
-                transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y - torque, 0);
+                var rotateTowerY = transform.eulerAngles.y - torque;
+                transform.rotation = Quaternion.Euler(0, rotateTowerY, 0);
             }                
         }
     }

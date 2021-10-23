@@ -2,28 +2,27 @@
 
 public class Ball : MonoBehaviour
 {
-    public float torque;
-    public GameObject gameController;
-    public Vector3 local;
-    private Rigidbody rb;
+    private float torque = 1.5f;
+    private Vector3 _local;
+    public Vector3 Local => _local;
+    private Rigidbody _rb;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        gameController = GameObject.Find("GameController");
+        _rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
-        local = transform.InverseTransformDirection(rb.velocity);
+        _local = transform.InverseTransformDirection(_rb.velocity);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Platform"))
-            rb.AddRelativeForce(Vector3.up * torque, ForceMode.Impulse);
+            _rb.AddForce(Vector3.up * torque, ForceMode.Impulse);
         if (collision.gameObject.CompareTag("Finish"))
-            gameController.GetComponent<NextLevel>().levelBtn.SetActive(true);
+            GameManager.IsPlay = false;
     }
 
     private void OnTriggerEnter(Collider other)
