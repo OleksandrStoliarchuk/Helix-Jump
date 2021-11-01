@@ -19,8 +19,8 @@ public class CameraPosition : MonoBehaviour
 
     private void CameraPos()
     {
-        float yCameraPos = _ball.transform.position.y + 1.5f;
-        var cameraPos = new Vector3(0, yCameraPos, -3.5f);
+        float yCameraPos = _ball.transform.position.y + 1.25f;
+        var cameraPos = new Vector3(0, yCameraPos, -3.4f);
         var cameraRotate = Quaternion.Euler(30, 0, 0);
         transform.position = cameraPos;
         transform.rotation = cameraRotate;

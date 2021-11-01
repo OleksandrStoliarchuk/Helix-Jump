@@ -26,8 +26,8 @@ public class GameManager : MonoBehaviour
 
     private void SpawnTower()
     {
-        float minCountPlatforms = 15;
-        float maxCountPlatforms = 25;
+        int minCountPlatforms = 10;
+        int maxCountPlatforms = 30;
         _countPlatforms = Random.Range(minCountPlatforms, maxCountPlatforms);
 
         SpawnBeam();
